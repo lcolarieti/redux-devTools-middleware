@@ -1,4 +1,4 @@
-const devToolsMiddleware = store => next => (action) => {
+export default store => next => (action) => {
     const eventName = 'reduxDevTools';
 
     if (typeof window !== 'undefined') {
@@ -14,5 +14,3 @@ const devToolsMiddleware = store => next => (action) => {
     }
     next(action);
 };
-
-export default devToolsMiddleware;
