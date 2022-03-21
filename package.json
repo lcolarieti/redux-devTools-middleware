@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "redux-devtools-middleware-lc",
   "version": "1.0.2",
   "main": "lib/index.js",
@@ -6,25 +7,11 @@
   "author": "Lorenzo Colarieti <76430596+lorenzocolarieti@users.noreply.github.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "*",
-    "babel-cli": "*",
-    "babel-core": "*",
-    "babel-loader": "*",
-    "babel-preset-env": "*",
-    "babel-preset-es2015": "*",
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.cjs"
   },
-  "dependencies": {
-    "@babel/preset-env": "*"
-  },
-  "browserslist": "> 0.25%, not dead",
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ]
-  }
+  "browserslist": "> 0.25%, not dead"
 }

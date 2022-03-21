@@ -1,16 +1,20 @@
-export default store => next => (action) => {
-    const eventName = 'reduxDevTools';
+exports.reduxDevToolsMiddleware = function (store) {
+    return function (next) {
+        return function (action) {
+            var eventName = 'reduxDevTools';
 
-    if (typeof window !== 'undefined') {
-        const date = new Date();
-        const reduxStore = store.getState();
-        const item = {
-            action,
-            store: 'asImmutable' in store.getState() ? reduxStore.toJS() : reduxStore,
-            createdAt: `${date.toLocaleString().split(',')[1]}.${date.getMilliseconds()}`,
-        };
-        const event = new CustomEvent(eventName, { detail: item });
-        window.dispatchEvent(event);
-    }
-    next(action);
-};
+            if (typeof window !== 'undefined') {
+                var date = new Date();
+                var reduxStore = store.getState();
+                var item = {
+                    action,
+                    store: 'asImmutable' in store.getState() ? reduxStore.toJS() : reduxStore,
+                    createdAt: `${date.toLocaleString().split(',')[1]}.${date.getMilliseconds()}`,
+                };
+                var event = new CustomEvent(eventName, { detail: item });
+                window.dispatchEvent(event);
+            }
+            next(action);
+        }
+    };
+}
